@@ -25,33 +25,33 @@ const pokémon = Object.freeze([
 ]);
 
 // 1
-const question1 = [...pokémon].filter(val => val.id % 3 == 0);
-console.log(q1);
+const question1 = pokémon.filter(val => val.id % 3 == 0);
+console.log(question1);
 
 // 2
-const question2 = [...pokémon].filter(val => val.types.includes("fire"));
-console.log(q2);
+const question2 = pokémon.filter(val => val.types.includes("fire"));
+console.log(question2);
 
 //  3
-const question3 = [...pokémon].filter(val => val.types.length > 1);
-console.log(q3);
+const question3 = pokémon.filter(val => val.types.length > 1);
+console.log(question3);
 
 //  4
-const question4 = [...pokémon].map(val => val.name);
-console.log(q4);
+const question4 = pokémon.map(val => val.name);
+console.log(question4);
 
 //  5
-const question5 = [...pokémon].filter(val => val.id > 99).map(x => x.name);
-console.log(q5);
+const question5 = pokémon.filter(val => val.id > 99).map(x => x.name);
+console.log(question5);
 
 //  6
-const question6 = [...pokémon].filter(val => val.types.length == 1 && val.types.includes("poison")).map(x => x.name);
-console.log(q6);
+const question6 = pokémon.filter(val => val.types.length == 1 && val.types.includes("poison")).map(x => x.name);
+console.log(question6);
 
 // 7
-const question7 = [...pokémon].filter(val => val.types.length > 1 && val.types[1] == "flying").map(x => x.types[0]);
-console.log(q7);
+const question7 = pokémon.filter(val => val.types.length > 1 && val.types[1] == "flying").map(x => x.types[0]);
+console.log(question7);
 
 //  8
-const question8 = [...pokémon].filter(val => val.types.includes("normal")).length;
-console.log(q8);
+const question8 = pokémon.filter(val => val.types.includes("normal")).length;
+console.log(question8);
