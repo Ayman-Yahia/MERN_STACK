@@ -1,7 +1,16 @@
 .App {
   text-align: center;
+  margin-left: 10px;
+  margin-top: 20px;
 }
-
+.formUser{
+  margin-left: 600px;
+  margin-top: 20px;
+}
+.ll{
+  margin-left: 600px;
+  margin-top: 20px;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
