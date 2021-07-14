@@ -19,6 +19,7 @@ function AddUser(props){
     const[lastNameError,setLastNameError]=useState()
     const[emailError,setEmailError]=useState()
     const[passwordError,setPasswordError]=useState()
+    const[passwordErrorCon,setPasswordErrorCon]=useState()
     const handleFirstName=(e) =>{
         if(e.target.value.length < 2) {
           
@@ -56,6 +57,13 @@ function AddUser(props){
           setPasswordError("")
         }
       }
+      const handlePasswordconf=(e)=>{
+        if(e.target.value!=password){
+          setPasswordErrorCon("PASSWORDS DO NOT MATCH")
+        }else{
+          setPasswordErrorCon("")
+        }
+      }
       const createUser=(e)=>{
         e.preventDefault()
         props.setUsers(prev => prev.concat({firstName, lastName, email, password,confimationPassword}))
@@ -65,9 +73,7 @@ function AddUser(props){
         setPassword("")
         setConfirmationPassword("")
       }
-    
-  
-  
+
     return(
         <form onSubmit={ (e) => createUser(e)} className="formUser">
           <h1>Creating Users</h1>
@@ -104,12 +110,8 @@ function AddUser(props){
                 }
             </div><br />
             <div className="form-group">
-                <input value={confimationPassword} type="password" placeholder="Confirmation Password" onChange={handlePassword} />
-                {
-                    confimationPassword !== password ?
-                    <p style={{color: "red"}}>PASSWORDS DO NOT MATCH</p>
-                    :''
-                }
+                <input value={confimationPassword} type="password" placeholder="Confirmation Password" onChange={handlePasswordconf} />
+                    <p style={{color: "red"}}>{passwordErrorCon}</p>
             </div><br />
             <input type="submit" value="Create User" />
         </form>
