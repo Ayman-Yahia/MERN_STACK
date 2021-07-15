@@ -21,39 +21,43 @@ function AddUser(props){
     const[passwordError,setPasswordError]=useState()
     const[passwordErrorCon,setPasswordErrorCon]=useState()
     const handleFirstName=(e) =>{
+        setFirstName(e.target.value)
         if(e.target.value.length < 2) {
           
           setFirstNameError("first name must not be less than 2 char");
         }
         else{
-          setFirstName(e.target.value)
+          
           setFirstNameError("")
         }
     }
     const handleLastName=(e) =>{
+        setLastName(e.target.value)
         if(e.target.value.length < 2) {
           setLastNameError("last name must not be less than 2 char");
         }
         else{
-          setLastName(e.target.value)
+          
           setLastNameError("")
         }
     }
     const handleEmail=(e) =>{
-         if(e.target.value.length < 2) {
+        setEmail(e.target.value)
+         if(e.target.value.length < 5) {
           setEmailError("email must not be less than 5char");
         }
         else{
-          setEmail(e.target.value)
+          
           setEmailError("")
         }
       }
       const handlePassword=(e) =>{
+        setPassword(e.target.value)
          if(e.target.value.length < 8) {
           setPasswordError("password must not be less than 8char");
         }
         else{
-          setPassword(e.target.value)
+          
           setPasswordError("")
         }
       }
@@ -125,7 +129,6 @@ function AddUser(props){
           <p>Last Name: {props.lastName}</p>
           <p>Email: {props.email}</p>
           <p>Password: {props.password}</p>
-          <p>Confirmation Password: {props.confimationPassword}</p>
         </div>
   
     )
