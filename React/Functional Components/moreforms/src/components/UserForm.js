@@ -1,4 +1,4 @@
-import React,{Component} from "react";
+import React from "react";
 const useState=React.useState
 function UserForm(){
     const [ users, setUsers] = useState([]);
