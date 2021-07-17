@@ -11,7 +11,7 @@ const List = () => {
     }
   }, [])
   
-  // run every time our pet state changes
+  // run every time our list state changes
   useEffect(() => {
     localStorage.setItem("examplePetData", JSON.stringify(list))
   }, [list])
