@@ -2,31 +2,15 @@ import React from 'react';
 
 const useState=React.useState
 function UseForm(){
-    const [ users, setUsers] = useState([]);
-    return (
-        <>
-            <AddUser setUsers={setUsers} />
-            <div>{users.map(person=> <Person firstName={person.firstName} lastName={person.lastName} email={person.email} password={person.password} confimationPassword={person.confimationPassword} />)}</div>
-        </>
-    )
-}
-function AddUser(props){
     const [firstName, setFirstName] = useState()
     const [lastName, setLastName] = useState()
     const [email, setEmail] = useState()
     const [password, setPassword] = useState()
     const [confimationPassword, setConfirmationPassword] = useState()
-    function handleSubmit(e) {
-        e.preventDefault()
-        props.setUsers(prev => prev.concat({firstName, lastName, email, password,confimationPassword}))
-        setFirstName("")
-        setLastName("")
-        setEmail("")
-        setPassword("")
-        setConfirmationPassword("")
-    }
-    return(
-        <form onSubmit={handleSubmit} className="formUser">
+    return (
+        <>
+            <div>
+            <form  className="formUser">
           <h1>Creating Users</h1>
             <div className="form-group">
                 <input value={firstName} type="text" placeholder="First Name" onChange={e => setFirstName(e.target.value)} />
@@ -45,19 +29,15 @@ function AddUser(props){
             </div><br />
             <button>Add User</button>
         </form>
+            </div>
+            <div>
+                <p>First Name: {firstName}</p>
+                <p>Last Name: {lastName}</p>
+                <p>Email: {email}</p>
+                <p>Password: {password}</p>
+                <p>Confirmation Password: {confimationPassword}</p>
+            </div>
+        </>
     )
-  }
-  function Person(props) {
-    return (
-  
-        <div className="ll">
-          <p>First Name: {props.firstName}</p>
-          <p>Last Name: {props.lastName}</p>
-          <p>Email: {props.email}</p>
-          <p>Password: {props.password}</p>
-          <p>Confirmation Password: {props.confimationPassword}</p>
-        </div>
-  
-    )
-  }
+}
 export default UseForm;
