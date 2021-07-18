@@ -3,32 +3,21 @@ import DisplayBoxes from './DisplayBoxes';
 function BoxGen(){
 
     const [ boxes, setBoxes] = useState([]);
-    return(
-        <>
-        <div className="box">
-        <GenBox setBoxes={setBoxes}/>
-        <DisplayBoxes boxes={boxes}/>
-
-        </div>
-        
-        </>
-    )
-}
-function GenBox(props){
     const[color,setColor]=useState()
     const[width,setWidth]=useState()
     const[height,setHeight]=useState()
     function handleSubmit(e) {
         e.preventDefault()
-        props.setBoxes(prev => prev.concat({color,width,height}))
+        setBoxes(prev => prev.concat({color,width,height}))
         setColor("")
         setHeight("")
         setWidth("")
     }
-
     return(
+        <>
+        <div className="box">
         <form onSubmit={handleSubmit} className="formUser">
-          <h1>Generate a Box</h1>
+           <h1>Generate a Box</h1>
             <div className="form-group">
                 <input value={color} type="text" placeholder="Choose a Color" onChange={e => setColor(e.target.value)} />
             </div><br />
@@ -40,6 +29,12 @@ function GenBox(props){
             </div><br />
             <button>Grnarate a Box</button>
         </form>
+        <DisplayBoxes boxes={boxes}/>
+
+        </div>
+        
+        </>
     )
 }
+
 export default BoxGen;
