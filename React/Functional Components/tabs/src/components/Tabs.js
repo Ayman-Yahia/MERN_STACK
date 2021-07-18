@@ -21,14 +21,8 @@ const Tabs = () => {
             textColor: "green",
         }
     ]
-    const handleTab=()=>{
-        setContent(btnInfo[0])
-    }
-    const handleTab1=()=>{
-        setContent(btnInfo[1])
-    }
-    const handleTab2=()=>{
-        setContent(btnInfo[2])
+    const handleTab=(e,a)=>{
+        setContent(btnInfo[a])
     }
     
     return (
@@ -36,9 +30,9 @@ const Tabs = () => {
         
         <div className="container">
             <div className="buttons">
-                <button  className="btn btn-primary but" onClick={handleTab}>Tab 1</button> 
-                <button  className="btn btn-primary but" onClick={handleTab1}>Tab 2</button>
-                <button  className="btn btn-primary but" onClick={handleTab2}>Tab 3</button>
+                <button  className="btn btn-primary but" onClick={(e)=>handleTab(e,0)}>Tab 1</button> 
+                <button  className="btn btn-primary but" onClick={(e)=>handleTab(e,1)}>Tab 2</button>
+                <button  className="btn btn-primary but" onClick={(e)=>handleTab(e,2)}>Tab 3</button>
             </div>
             
             <div className="content">
