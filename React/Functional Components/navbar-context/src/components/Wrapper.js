@@ -1,13 +1,13 @@
 import React,{useState} from 'react'
-import MyContext from '../context/MyContext';
-import Form from './Form';
-import Navbar from './Navbar'
-const Wrapper = () => {
+// import FormWrapper from './FormWrapper';
+// import Navbar from './Navbar'
+export const MyContext = React.createContext()
+
+const Wrapper = ({ children }) => {
     const [name, setName] = useState("Ayamn Yahia");
     return (
-        <MyContext.Provider value = {{ name, setName }}>
-        <Navbar />
-        <Form />
+      <MyContext.Provider value = {{ name, setName }}>
+          { children }
       </MyContext.Provider>
     )
 }

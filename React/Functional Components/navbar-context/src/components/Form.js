@@ -1,6 +1,5 @@
 import React,{useContext} from 'react'
-import MyContext from '../context/MyContext';
-
+import {MyContext} from './Wrapper'
 const Form = () => {
     const { name, setName } = useContext(MyContext);
     return (

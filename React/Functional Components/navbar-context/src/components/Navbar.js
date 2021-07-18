@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
-import MyContext from '../context/MyContext';
+import {MyContext} from './Wrapper'
 
 const Navbar = () => {
-    const { name } = useContext(MyContext);
+    const {name} = useContext(MyContext);
   return(
-    <Navbar>Hi { name }</Navbar>
+    <nav>Hi { name }</nav>
     )
 }
 
