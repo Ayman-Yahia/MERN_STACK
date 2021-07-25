@@ -17,6 +17,7 @@ const List = () => {
   }, [list])
     const handleSubmit=(e)=>{
         e.preventDefault()
+        setName(e.target.value)
         if(name.length!==0){
             setList(prev => prev.concat({name, check:false,id:Date.now()}))
         }
