@@ -17,8 +17,11 @@ const List = () => {
   }, [list])
     const handleSubmit=(e)=>{
         e.preventDefault()
-        setList(prev => prev.concat({name, check:false,id:Date.now()}))
+        if(name.length!==0){
+            setList(prev => prev.concat({name, check:false,id:Date.now()}))
+        }
         setName("")
+        
     }
     return (
         <div className="s">
@@ -31,7 +34,7 @@ const List = () => {
                 
             </form>
             <div className="content">
-                <ListItems  list={list } setList={setList} />
+                <ListItems  list={list} setList={setList} />
             </div>
             
         </div>
