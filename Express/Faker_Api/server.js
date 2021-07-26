@@ -9,7 +9,6 @@ const faker=require("faker")
         this.lastName = faker.name.lastName();
         this.phoneNumber = faker.phone.phoneNumber();
         this.email = faker.internet.email();
-        this.password = faker.internet.password();
      }
  }
  class Company {
@@ -19,8 +18,6 @@ const faker=require("faker")
           street: faker.address.streetAddress(),
           city: faker.address.city(),
           state: faker.address.state() ,
-          zipCode: faker.address.zipCode(),
-          country: faker.address.country()
       };
     }
   }
