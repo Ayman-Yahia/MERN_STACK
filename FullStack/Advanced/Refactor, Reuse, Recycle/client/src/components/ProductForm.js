@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
 import axios from 'axios'
-const ProductForm = () => {
+import { navigate } from '@reach/router';
+const ProductForm =( props) => {
     const { initialTitle, initialPrice,initialDescription, onSubmitProp } = props;
     const [title, setTitle] = useState("");
     const [price, setPrice] = useState();
@@ -8,6 +9,7 @@ const ProductForm = () => {
     const   onSubmitHandler=(e)=>{
         e.preventDefault();
         onSubmitProp({title, price,description});
+        navigate("/products")
     }
     return (
         <div>

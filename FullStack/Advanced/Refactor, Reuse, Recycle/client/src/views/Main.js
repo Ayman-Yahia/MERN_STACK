@@ -18,12 +18,12 @@ const Main = () => {
     const createProduct = product => {
         axios.post('http://localhost:5000/api/products', product)
             .then(res=>{
-                setProducts([...product, res.data]);
+                setProducts([...products, res.data]);
             })
     }
     return (
         <div>
-           <ProductForm onSubmitProp={createProduct} initialTitle="" initialPrice=parseInt initialDescription=""/>
+           <ProductForm onSubmitProp={createProduct} initialTitle="" initialPrice="" initialDescription=""/>
            <hr/>
            {loaded && <ProductList products={products} removeFromDom={removeFromDom}/>}
         </div>

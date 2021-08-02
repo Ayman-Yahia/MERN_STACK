@@ -20,7 +20,7 @@ const ProductList = (props) => {
                             {product.title}
                         </Link>
                         |
-                        <Link to={"/" + product._id + "/edit"}>
+                        <Link to={"/products/" + product._id + "/edit"}>
                             Edit
                         </Link> 
                         |

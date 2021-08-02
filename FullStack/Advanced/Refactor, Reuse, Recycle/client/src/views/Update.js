@@ -14,9 +14,10 @@ const Update = (props) => {
                 setLoaded(true);
             })
     }, [])
-    const updateProduct = person => {
+    const updateProduct = product => {
         axios.put('http://localhost:5000/api/products/' + id, product)
-            .then(res => console.log(res));
+            .then(res => {console.log(res)
+            navigate("/products/"+id)});
     }
     return (
         <div>
