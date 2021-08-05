@@ -15,24 +15,25 @@ const Update = (props) => {
             })
             .catch(err => {
                 console.log(err.response);
-                setErrors(err.response.data.errors);
+                alert("this author doesn't exist")
+                navigate("/authors"+id)
             })
 
     }, [])
-    // if (author ===null) {
-    // //     alert("the author you want to edit does not exist")
-    // //     navigate("/")
-    // // }
+
     const updateAuthor = author => {
         axios.put('http://localhost:5000/api/authors/' + id, author)
         .then((res) => {
             navigate("/");
         })
-        .catch((err) => {
-            // this catch happens because of the res.status(400) in the controller
-            setErrors(err.response.data.errors);
-            console.log(err.response);
-        });
+        .catch(err=>{
+            const errorResponse = err.response.data.errors; 
+            const errorArr = []; 
+            for (const key of Object.keys(errorResponse)) { 
+                errorArr.push(errorResponse[key].message)
+            }
+            setErrors(errorArr);
+        })
     }
     return (
         <div>
