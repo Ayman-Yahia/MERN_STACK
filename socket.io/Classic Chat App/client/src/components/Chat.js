@@ -30,7 +30,7 @@ function Chat() {
 
 
 	return (
-		<div className="card">
+		<div >
 			<div className="render-chat">
 				<h1>MERN Chat</h1>
 				{chat.map(({ name, message }, index) => (
