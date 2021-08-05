@@ -6,22 +6,22 @@ function Chat() {
 	const [ message, setMessage ] = useState("")
 	const [ chat, setChat ] = useState([])
 
-	const socketRef = useRef()
+	const [socket] = useState(() => io(':8000'));
 
 	useEffect(
 		() => {
-			socketRef.current = io.connect("http://localhost:8000")
-			socketRef.current.on("message", ({ name, message }) => {
+			socket.current = io.connect("http://localhost:8000")
+			socket.current.on("message", ({ name, message }) => {
 				setChat([ ...chat, { name, message } ])
 			})
-			return () => socketRef.current.disconnect()
+			return () => socket.disconnect(true)
 		},
-		[ chat ]
+		[chat]
 	)
 
 
 	const onMessageSubmit = (e) => {
-		socketRef.current.emit("message", {name, message })
+		socket.current.emit("message", {name, message })
 		setChat([ ...chat, { name, message } ])
 		e.preventDefault()
 		setMessage('')
